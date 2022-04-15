@@ -48,6 +48,20 @@ UFiber NANO G Firmware versions: v2.1.1 and v4.1.0
 
 UFiber LOCO Firmware versions: v4.2.1
 
+## Docker
+If you want to use Docker to build an image to execute the hack with, you can build the image with the following command:
+
+```
+docker build -t ubihack .
+```
+
+To execute, pass the commands explained int Usage, like so:
+
+```
+docker run -it --rm ubihack -r 192.168.1.1 -p 22 --readonly
+docker run -it --rm ubihack -r 192.168.1.1 -p 22 --serial 48:57:54:43:30:30:30:30 --mac 11:22:33:44:55:66
+```
+
 
 ## Used links
 https://web.archive.org/web/20190214022357/https://blog.onedefence.com/changing-the-gpon-serial-on-the-ubiquiti-ufiber-nano-g-part-two/
