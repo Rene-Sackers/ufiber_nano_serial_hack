@@ -1,15 +1,12 @@
-FROM alpine:3.12
-
-LABEL maintainer ""
+FROM python:3.7.5-slim
 
 # Add project source
-COPY ubi_serial_hack.py /usr/bin/ubi_serial_hack
+WORKDIR /usr/src/app
+COPY ubi_serial_hack.py .
 
 # Install dependencies
-RUN apk update \
-&& apk add --no-cache \
-  python3 \
-  py3-paramiko \
-  py3-scp
+RUN python -m pip install \
+  paramiko \
+  scp
 
-ENTRYPOINT ["ubi_serial_hack"]
+ENTRYPOINT ["python", "ubi_serial_hack.py"]
